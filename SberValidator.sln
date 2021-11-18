@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31005.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SberValidator", "SberValidator.csproj", "{6B6155C4-085E-4AF4-AC86-42BC33E4D96F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6B6155C4-085E-4AF4-AC86-42BC33E4D96F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B6155C4-085E-4AF4-AC86-42BC33E4D96F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B6155C4-085E-4AF4-AC86-42BC33E4D96F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B6155C4-085E-4AF4-AC86-42BC33E4D96F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1C79952D-C7F6-446E-A1E7-2EC8157CA308}
+	EndGlobalSection
+EndGlobal

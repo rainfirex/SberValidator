@@ -1,0 +1,24 @@
+﻿<Window x:Name="frmEdit" x:Class="SberValidator.Windows.EditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="EditWindow" Height="463.687" Width="1344.624" WindowStartupLocation="CenterScreen" Loaded="frmEdit_Loaded" ResizeMode="NoResize">
+    <Grid>
+        <DataGrid x:Name="dataGrid" Margin="10,205,10,0" Height="117" VerticalAlignment="Top">
+            <!--<DataGrid.Columns>
+                <DataGridTextColumn Header="Date" IsReadOnly="True" Width="50"></DataGridTextColumn>
+                <DataGridTextColumn Header="Account" IsReadOnly="True"  Binding="{Binding Path=Time2}" Width="130"></DataGridTextColumn>
+            </DataGrid.Columns>-->
+        </DataGrid>
+        <Button x:Name="btnParse" Content="Исправить" HorizontalAlignment="Left" Margin="216,0,0,26" Width="133" Click="btnParse_Click" Height="36" VerticalAlignment="Bottom" RenderTransformOrigin="0.183,0.546"/>
+        <TextBlock Margin="28,175,27,0" TextWrapping="Wrap" Text="Запись для исправления" VerticalAlignment="Top" Height="25" FontSize="16"/>
+        <TextBlock Margin="28,10,27,0" TextWrapping="Wrap" Text="Редактирование... (Черновик)" VerticalAlignment="Top" Height="25" FontSize="16"/>
+        <RichTextBox x:Name="rTxtBox" Margin="10,40,10,0" Height="130" VerticalAlignment="Top"/>
+        <TextBlock x:Name="txtWarning" Margin="0,326,10,0" TextWrapping="Wrap" Text="Запись с ошибкой" VerticalAlignment="Top" Padding="3" Foreground="Red"  HorizontalAlignment="Right" Width="288" TextAlignment="Right" FontSize="16" FontWeight="Bold" FontStyle="Italic"/>
+        <Button x:Name="btnAddSuccess" Content="Добавить" HorizontalAlignment="Left" Margin="403,0,0,26" Width="133" Height="36" VerticalAlignment="Bottom" Click="btnAddSuccess_Click"/>
+        <Button x:Name="btnClose" Content="Закрыть" Margin="0,0,50,26" Click="btnClose_Click" HorizontalAlignment="Right" Width="133" Height="36" VerticalAlignment="Bottom"/>
+        <Button x:Name="btnValidate" Content="Валидировать" HorizontalAlignment="Left" Margin="28,0,0,26" VerticalAlignment="Bottom" Width="134" Height="36" Click="btnValidate_Click"/>
+    </Grid>
+</Window>

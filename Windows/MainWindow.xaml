@@ -1,0 +1,66 @@
+﻿<Window x:Class="SberValidator.Windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="765.363" Width="1209.743" Loaded="Window_Loaded" Icon="/mainIco.ico" WindowStartupLocation="CenterScreen">
+
+    <Grid Margin="0" x:Name="MainGrid" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+        <DockPanel x:Name="dockMenu" Background="#FFFF8E8E" Height="38" VerticalAlignment="Top" Grid.ColumnSpan="2" d:IsLocked="True">
+            <Menu x:Name="menu" Height="38" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" FontSize="15" Background="#FFFBF9F9" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" >
+                <MenuItem Header="Файл" Height="38" Width="50">
+                    <MenuItem Header="Открыть" Click="btnOpenFile_Click"/>
+                    <Separator/>
+                    <MenuItem Header="Выход" Click="Close"/>
+                </MenuItem>
+                <MenuItem Header="Данные">
+                    <MenuItem Header="Экспортировать успешных" x:Name="mnuExportSucces" Click="ExportSucces"/>
+                    <MenuItem Header="Экспортировать с ошибками" x:Name="mnuExportErrors" Click="ExportErrors"/>
+                    <Separator/>
+                    <MenuItem Header="Пересчитать результат" x:Name="mnuRecalculateResult" Click="Calculate" />
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+        <Grid Height="106" Margin="10,43,0,0" VerticalAlignment="Top" Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}" HorizontalAlignment="Left" Width="547" d:IsLocked="True">
+            <TextBlock x:Name="lblPath" Padding="1" TextWrapping="Wrap" Margin="119,14,10,0" VerticalAlignment="Top" Height="35" Background="#FFAAC6E8" FontStyle="Italic"/>
+            <Label Content="Кодировка" HorizontalAlignment="Left" Margin="10,71,0,0" VerticalAlignment="Top" Width="113" RenderTransformOrigin="0.823,0.808" Foreground="White" Height="27" FontStyle="Italic" FontSize="14"/>
+            <ComboBox x:Name="cmbBoxEncoding" Margin="120,68,0,0" VerticalAlignment="Top" Height="32" HorizontalAlignment="Left" Width="134" FontSize="16"/>
+            <Button x:Name="btnRead" Click="btnReadFile_Click" Content="Прочитать данные" Margin="0,64,10,0" Height="37" VerticalAlignment="Top" HorizontalAlignment="Right" Width="148"/>
+            <Label x:Name="lblpathFile" Content="Путь к файлу:" HorizontalAlignment="Left" Margin="10,14,0,0" VerticalAlignment="Top" Foreground="White" FontStyle="Italic" FontSize="14"/>
+        </Grid>
+        <Grid Height="106" Margin="0,43,10,0" VerticalAlignment="Top" Background="#FFF7F7F7" HorizontalAlignment="Right" Width="337" d:IsLocked="True">
+            <TextBlock x:Name="txtSberCount" Margin="10,43,10,0" TextWrapping="Wrap" Text="Успешных элементов: 0" VerticalAlignment="Top" FontSize="16" Grid.ColumnSpan="2"/>
+            <TextBlock x:Name="txtSberErrorCount" Margin="10,70,10,0" TextWrapping="Wrap" Text="Элементов с ошибок:  0" VerticalAlignment="Top" FontSize="16" Grid.ColumnSpan="2"/>
+            <Label Content="Результат" Margin="10,7,10,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Grid.ColumnSpan="2"/>
+        </Grid>
+        <Grid Margin="0,169,0,10">
+            <TabControl x:Name="tabs" Margin="10,10,10,37">
+                <TabItem Header="Успешные">
+                    <DataGrid x:Name="dataGrid" Margin="10,14,10,8"/>
+                </TabItem>
+                <TabItem Header="Ошибочные" x:Name="TabError">
+                    <Grid>
+                        <ListBox x:Name="listError" HorizontalAlignment="Left" Width="376" SelectionChanged="listError_SelectionChanged" Margin="10,10,0,10" MouseDoubleClick="listError_MouseDoubleClick" FontSize="16" />
+
+                        <Border BorderBrush="Black" BorderThickness="2" Margin="391,0,0,0">
+                            <Grid Margin="8,0,0,0">
+                                <TextBlock x:Name="lblLine" TextAlignment="Center" Background="#f1f1f1" TextWrapping="Wrap" Margin="8,12,8,0" VerticalAlignment="Top" FontSize="19" Height="29" Text="Строка:"/>
+                                <Label Content="Сырые данные:" FontSize="16" FontWeight="Bold" Height="30" VerticalAlignment="Top" Margin="66,55,0,0"/>
+                                <TextBlock x:Name="lblRowData" Padding="15" Background="#fcfcfc" Foreground="Green" TextWrapping="Wrap" FontSize="16" Margin="21,85,18,0" Height="86" VerticalAlignment="Top"/>
+
+                                <Label Content="Ошибка в строке:" Margin="66,184,18,0" FontSize="16" FontWeight="Bold" Height="30" VerticalAlignment="Top"/>
+                                <TextBlock x:Name="lblError" Padding="15" Background="#fcfcfc" Foreground="Red" TextWrapping="Wrap" Margin="21,215,18,0" FontSize="19" Height="87" VerticalAlignment="Top"/>
+
+                                <Label Content="Трассировка ошибки:"  Margin="66,310,18,0" Height="30" FontSize="16" FontWeight="Bold" VerticalAlignment="Top"/>
+                                <TextBlock x:Name="lblStackTrace" Padding="15" Background="#fcfcfc" TextTrimming="CharacterEllipsis" Foreground="Blue" TextWrapping="Wrap" Margin="21,341,18,10" FontSize="16"/>
+                            </Grid>
+                        </Border>
+
+                    </Grid>
+                </TabItem>
+            </TabControl>
+            <TextBlock x:Name="txtBlockResultCalculate" TextWrapping="Wrap" Margin="20,0,10,10" Height="16" VerticalAlignment="Bottom" Text="Строка результат:"/>
+        </Grid>
+    </Grid>
+</Window>
